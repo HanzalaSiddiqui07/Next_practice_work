@@ -10,6 +10,7 @@ const Products = () => {
     const fetchProducts = async () => {
         let data = await fetch('https://dummyjson.com/products');
         data = await data.json();
+
         if (data.products && data.products.length > 0) {
             setProductList(data.products);
         }
@@ -35,6 +36,8 @@ const Products = () => {
         setEdit(null);
     };
 
+   
+
     return (
         <div>
             <div className='font-bold text-slate-900 text-center text-2xl pt-5 pb-2 sm:text-3xl sm:pt-10 sm:pb-5'>{edit !== null ? 'Edit Product' : 'Add Product'}</div>
@@ -48,11 +51,12 @@ const Products = () => {
             }}>
                 <input
                     type="text"
-                    placeholder="Title" 
+                    placeholder="Title"
                     value={newProduct.title}
                     onChange={(e) => setNewProduct({ ...newProduct, title: e.target.value })}
                     required
-                    className="rounded-md text-slate-900 ring-1 ring-inset ring-slate-900 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-slate-900 py-2.5 pl-2 pr-2 w-72 sm:w-1/2 md:w-52 lg:w-64 xl:w-[22rem]"
+                    className="rounded-md text-slate-900 ring-1 ring-inset ring-slate-900 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-slate-900 
+                    py-2.5 pl-2 pr-2 w-72 sm:w-1/2 md:w-52 lg:w-64 xl:w-[22rem]"
                 />
                 <input
                     type="text"
@@ -60,7 +64,8 @@ const Products = () => {
                     value={newProduct.category}
                     onChange={(e) => setNewProduct({ ...newProduct, category: e.target.value })}
                     required
-                    className="rounded-md text-slate-900 ring-1 ring-inset ring-slate-900 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-slate-900 py-2.5 pl-2 pr-2 w-72 sm:w-1/2 md:w-52 lg:w-64 xl:w-[22rem]"
+                    className="rounded-md text-slate-900 ring-1 ring-inset ring-slate-900 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-slate-900 
+                    py-2.5 pl-2 pr-2 w-72 sm:w-1/2 md:w-52 lg:w-64 xl:w-[22rem]"
                 />
                 <input
                     type="number"
@@ -68,13 +73,15 @@ const Products = () => {
                     value={newProduct.price}
                     onChange={(e) => setNewProduct({ ...newProduct, price: parseFloat(e.target.value) })}
                     required
-                    className="rounded-md text-slate-900 ring-1 ring-inset ring-slate-900 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-slate-900 py-2.5 pl-2 pr-2 w-72 sm:w-1/2 md:w-52 lg:w-64 xl:w-[22rem]"
+                    className="rounded-md text-slate-900 ring-1 ring-inset ring-slate-900 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-slate-900 
+                    py-2.5 pl-2 pr-2 w-72 sm:w-1/2 md:w-52 lg:w-64 xl:w-[22rem]"
                 />
-                <button className="text-white bg-slate-900 rounded-full hover:bg-slate-700 py-2.5 w-28 sm:w-36 md:w-auto md:px-7 lg:px-10" type="submit">{edit !== null ? 'Update' : 'Add'}</button>
+                <button className="text-white bg-slate-900 rounded-full hover:bg-slate-700 py-2.5 w-28 sm:w-36 md:w-auto md:px-7 lg:px-10" type="submit">
+                    {edit !== null ? 'Update' : 'Add'}</button>
             </form>
             <div className='pt-10 text-center'>
                 <span className='text-2xl sm:text-3xl font-bold text-slate-900'>
-                    Product List
+                    Product List ({productList.length})
                 </span>
             </div>
             <div className="flex justify-center py-5">
@@ -85,8 +92,8 @@ const Products = () => {
                                 <th className='py-3 sm:py-5 px-1 md:px-2 lg:px-3 xl:px-10 border border-slate-500'>Title</th>
                                 <th className='px-1 md:px-2 lg:px-3 xl:px-10 border border-slate-500'>Category</th>
                                 <th className='px-1 md:px-2 lg:px-3 xl:px-10 border border-slate-500'>Price</th>
-                                <th className='border border-slate-500'></th>
-                                <th></th>
+                                <th className='text-center border border-slate-500'>Actions</th>
+                                <th className='text-center border border-slate-500'>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -94,7 +101,7 @@ const Products = () => {
                                 <ProductItem
                                     key={item.id}
                                     item={item}
-                                    onDelete={deleteProduct}
+                                    onDelete={deleteProduct} 
                                     onEdit={(product) => {
                                         setEdit(index);
                                         setNewProduct(product);
