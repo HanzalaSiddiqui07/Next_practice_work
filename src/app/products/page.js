@@ -1,12 +1,11 @@
 "use client"
 import { useEffect, useState } from 'react';
-import ProductItem from '../components/product-item';
+import ProductItem from '../../components/product-item';
 
 const Products = () => {
     const [productList, setProductList] = useState([]);
     const [newProduct, setNewProduct] = useState({ title: '', category: '', price: 0 });
     const [edit, setEdit] = useState(null);
-
     const fetchProducts = async () => {
         let data = await fetch('https://dummyjson.com/products');
         data = await data.json();
