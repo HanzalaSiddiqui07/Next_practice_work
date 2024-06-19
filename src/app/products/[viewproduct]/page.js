@@ -17,7 +17,7 @@ export default function ViewProduct({ params }) {
 
     return (
         <div>
-            <ul className='text-center mt-5 text-slate-900'>
+            <ul className='text-center mt-5 text-slate-900 dark:text-white'>
                 <li className="font-bold">Name:</li>
                 <li>{product.title}</li>
                 <li className="font-bold mt-5">Desc:</li>
