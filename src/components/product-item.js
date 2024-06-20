@@ -7,7 +7,7 @@ const ProductItem = (props) => {
     }
     return (
         <tr key={props.item.id}>
-            <td className="px-1 md:px-2 lg:px-3 xl:px-11 text-xs sm:text-base md:text-lg lg:text-xl border border-slate-500 text-slate-900 dark:text-white">{props.item.title }</td>
+            <td className="px-1 md:px-2 lg:px-3 xl:px-11 text-xs sm:text-base md:text-lg lg:text-xl border border-slate-500 text-slate-900 dark:text-white">{props.item.title}</td>
             <td className="px-1 md:px-2 lg:px-3 xl:px-11 text-xs sm:text-base md:text-lg lg:text-xl border border-slate-500 text-slate-900 dark:text-white">{props.item.category}</td>
             <td className="px-1 md:px-2 lg:px-3 xl:px-11 text-xs sm:text-base md:text-lg lg:text-xl border border-slate-500 text-slate-900 dark:text-white">{props.item.price}</td>
             <td className="px-1 md:px-2 lg:px-3 xl:px-11 text-xs sm:text-base md:text-lg lg:text-xl border border-slate-500">

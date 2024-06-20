@@ -9,10 +9,7 @@ const Products = () => {
     const fetchProducts = async () => {
         let data = await fetch('https://dummyjson.com/products');
         data = await data.json();
-
-        if (data.products && data.products.length > 0) {
-            setProductList(data.products);
-        }
+        setProductList(data.products);
     };
 
     useEffect(() => {
@@ -35,10 +32,25 @@ const Products = () => {
         setEdit(null);
     };
 
-   
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const username=e.target.name.value;
+        console.log("User Name :" + username);
+        localStorage.setItem("userName", username)
+    }
+
+
 
     return (
+
         <div>
+            <form onSubmit={handleSubmit}>
+            <input type='text' name='name' className="rounded-md text-slate-900 dark:bg-white ring-1 ring-inset ring-slate-900 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-slate-900  
+                    py-2.5 pl-2 pr-2 w-72 sm:w-1/2 md:w-52 lg:w-64 xl:w-[22rem]"/>
+            <button className="text-white bg-slate-900 dark:bg-blue-500  rounded-full hover:bg-slate-700 dark:hover:bg-blue-400 py-2.5 w-28 sm:w-36 md:w-auto md:px-7 lg:px-10" type='submit'>Add</button>
+            </form>
+
+
             <div className='font-bold text-slate-900 dark:text-white text-center text-2xl pt-5 pb-2 sm:text-3xl sm:pt-10 sm:pb-5'>{edit !== null ? 'Edit Product' : 'Add Product'}</div>
             <form className='space-y-3 md:space-y-0 md:space-x-2 lg:space-x-4 flex flex-col items-center justify-center md:flex-row' onSubmit={(e) => {
                 e.preventDefault();
@@ -100,7 +112,7 @@ const Products = () => {
                                 <ProductItem
                                     key={item.id}
                                     item={item}
-                                    onDelete={deleteProduct} 
+                                    onDelete={deleteProduct}
                                     onEdit={(product) => {
                                         setEdit(index);
                                         setNewProduct(product);
