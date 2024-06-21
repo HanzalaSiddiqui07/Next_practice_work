@@ -29,8 +29,8 @@ export default function ViewProduct({ params }) {
         }
 
         localStorage.setItem("Product", JSON.stringify(saveProduct))
-
-        document.cookie = `Product=${JSON.stringify(saveProduct)}`;
+        
+        document.cookie = `Product=${JSON.stringify(saveProduct)}`; 
 
     }
 
