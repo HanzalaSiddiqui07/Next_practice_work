@@ -39,7 +39,6 @@ const Products = () => {
                 {edit !== null ? 'Edit Product' : 'Add Product'}</div>
 
             <form className='space-y-3 md:space-y-0 md:space-x-2 lg:space-x-4 flex flex-col items-center justify-center md:flex-row' onSubmit={(e) => {
-                handleSubmit
                 e.preventDefault();
                 if (edit !== null) {
                     updateProduct(edit);
