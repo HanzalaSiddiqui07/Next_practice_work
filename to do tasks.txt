@@ -1,0 +1,2 @@
+1) Forms in next.js and post api in form in next.js
+2) ShadCN (Specially Theming)
