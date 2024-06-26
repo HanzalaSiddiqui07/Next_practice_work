@@ -1,0 +1,368 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033\deflangfe1033{\fonttbl{\f0\fswiss\fprq2\fcharset0 Calibri;}{\f1\fnil\fcharset2 Symbol;}}
+{\colortbl ;\red0\green0\blue255;}
+{\*\generator Riched20 10.0.19041}{\*\mmathPr\mnaryLim0\mdispDef1\mwrapIndent1440 }\viewkind4\uc1 
+\pard\nowidctlpar\sa200\sl276\slmult1\qj\b\f0\fs28\lang9 Component: \fs22\par
+\b0 A component is a reusable piece of code that represents a part of the user interface (UI). Components in Next.js are typically written using React, as Next.js is a React framework designed for server-side rendering, static site generation, and client-side rendering.\par
+\b Key Points about Components in Next.js: \b0\par
+
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\nowidctlpar\fi-360\li720\sa200\sl276\slmult1\qj\b Reusable UI Elements:\b0  Components are designed to be reusable across different parts of the application. This helps in maintaining a consistent look and feel and makes the code more modular and maintainable.\par
+{\pntext\f1\'B7\tab}\b Function or Class Components:\b0  Components can be defined as either function components or class components. However, function components are more common, especially with the advent of React hooks.\par
+{\pntext\f1\'B7\tab}\b Server-side and Client-side Rendering:\b0  Next.js components can be rendered on the server or the client. Next.js provides functionalities for both static site generation (SSG) and server-side rendering (SSR), making components flexible in how they are rendered and delivered to the user.\par
+
+\pard\nowidctlpar\sa200\sl276\slmult1\b Example of a Component in Next.js:\par
+\b0 export default function Home() \{\par
+  return (\par
+    <main>\par
+      <User name="hanzala" age="25"/>\par
+      <User name="Abdullah" age="15"/>\par
+    </main>\par
+  )\}\par
+\par
+const User=(user)=>\{\par
+  return(\par
+    <div>\par
+      <h2>User name is \{user.name\} and age is \{user.age\}</h2>\par
+    </div>\par
+  )\}\par
+\par
+
+\pard\nowidctlpar\sa200\sl276\slmult1\qj\b\fs28 Events:\par
+\b0\fs22 Events in Next.js work similarly to how they work in standard React applications. They are used to handle user interactions such as clicks, form submissions, and keyboard events.\par
+
+\pard\nowidctlpar\sa200\sl276\slmult1\b Example of a event in Next.js:\par
+\b0 'use client'\par
+\par
+export default function Home() \{\par
+  return (\par
+    <main>\par
+      <button onClick=\{()=> alert('Hello Hanzala')\}>Click Me</button>\par
+    </main>\par
+  )\par
+\}\par
+\par
+
+\pard\nowidctlpar\sa200\sl276\slmult1\qj\b\fs28 Functions:\par
+\b0\fs22 Functions in Next.js are used to encapsulate logic, which can then be reused across components. They can be defined within components or imported from other files.\par
+
+\pard\nowidctlpar\sa200\sl276\slmult1\b Example of a function in Next.js:\par
+\b0 'use client'\par
+\b\par
+\b0 export default function Home() \{ \par
+const apple=(item)=>\{alert(item)\}  \par
+return (\par
+    <main>\par
+      <button onClick=\{()=>apple("fruit")\}>Click Me</button>\par
+    </main>\par
+  )\par
+\}\par
+\par
+
+\pard\nowidctlpar\sa200\sl276\slmult1\qj\b\fs28 useState:\par
+\b0\fs22 State in Next.js, as in React, refers to the data that determines the rendering of components. State can be managed using the useState hook, which allows components to have local state.\par
+
+\pard\nowidctlpar\sa200\sl276\slmult1\b Example of a state in Next.js:\par
+\b0 'use client'\par
+import \{ useState \} from 'react'\par
+\par
+export default function Home() \{ \par
+  const [name,setName]=useState("Hanzala")\par
+  const apple=()=>\{setName("Siddiqui")\}\par
+  return (\par
+    <main>\par
+      <h1>\{name\}</h1>\par
+      <button onClick=\{()=>apple()\}>Click Me</button>\par
+    </main>\par
+  )\par
+\}\par
+\par
+
+\pard\nowidctlpar\sa200\sl276\slmult1\qj\b\fs28 Server Components:\b0\fs22\par
+Server components are components that are rendered on the server and sent to the client as static HTML. They can fetch data directly on the server, reducing the amount of JavaScript sent to the client. Server components are useful for static content or content that does not need to be interactive.\par
+\par
+\b\fs28 Client Components:\b0\fs22\par
+Client components are components that are rendered on the client-side and can be interactive. They use React hooks and other client-side features. Client components are useful for parts of your application that require user interactions, such as forms, buttons, and dynamic content updates.\par
+\par
+\b\fs28 Link:\par
+\b0\fs22 The \b Link\b0  component from the next/link module is used to handle navigation between different pages in your application. This client-side navigation is crucial for creating fast and responsive web applications, as it avoids full page reloads and enables smoother transitions.\par
+\b Example of a Link in Next.js:\par
+\b0 import Link from "next/link"\par
+\par
+export default function Home() \{ \par
+  return (\par
+    <main>\par
+      <h1>Home Page</h1>\par
+      <Link href="/login">Go to LoginPage</Link>\par
+      <Link href="/about">Go to AboutPage</Link>\par
+    </main>\par
+  )\par
+\}\par
+\par
+\b\fs28 useRouter:\par
+\b0\fs22 While Link is the recommended way to handle navigation in Next.js, you can also navigate programmatically using the useRouter hook.\par
+\b Example of a Navigation in Next.js:\par
+\b0 'use client'\par
+import \{ useRouter \} from "next/navigation"\par
+\par
+export default function Home() \{ \par
+  const router = useRouter();\par
+  const navigate = (name)=>\{\par
+    router.push(name)\par
+  \}\par
+  return (\par
+    <main>\par
+      <h1>Home Page</h1>\par
+      <button onClick=\{()=>navigate("/login")\}>Go to LoginPage</button>\par
+      <button onClick=\{()=>navigate("/about")\}>Go to AboutPage</button>\par
+    </main>\par
+  )\par
+\}\par
+\par
+\b\fs28 Nested Routing:\par
+\b0\fs22 Nested routing in Next.js is achieved by organizing your files and directories in the pages directory. Next.js uses the file system to determine routes, so you can create nested routes by placing files in nested directories.\par
+\b Example of a Nested Routing in Next.js:\fs28\par
+\b0\fs22 'use client'\par
+import Link from "next/link";\par
+import \{ useRouter \} from "next/navigation";\par
+\par
+const Login=()=>\{\par
+    const router=useRouter();\par
+    const navigate=(page)=>\{\par
+        router.push("/login/" + page)\par
+    \}\par
+    return(\par
+        <div>\par
+            <h1>Login Page</h1>\par
+            <Link href="/">Go to HomePage</Link>\par
+            <button onClick=\{()=>navigate("logincollege")\}>Go to LoginCollege</button>\par
+            <button onClick=\{()=>navigate("loginstudent")\}>Go to LoginStudent</button>\par
+        </div>\par
+    )\par
+\}\par
+\par
+export default Login;\par
+\par
+\b\fs28 Common Layout:\par
+\b0\fs22 you can create a common layout that wraps around all your pages to maintain a consistent structure and style throughout your application. This is typically done by creating a Layout component and using it in your pages.\par
+\b Example of a Common Layout in Next.js:\b0\par
+import Link from "next/link"\par
+\par
+export default function Layout(\{children\})\{\par
+    return(\par
+        <div>\par
+            <ul>\par
+                <h4>Login Navbar</h4>\par
+                <li>\par
+                    <Link href="/login">Login</Link>\par
+                </li>\par
+                <li>\par
+                    <Link href="/login/logincollege">Login College</Link>\par
+                </li>\par
+                <li>\par
+                    <Link href="/login/loginstudent">Login Student</Link>\par
+                </li>\par
+            </ul>\par
+            \{children\}\par
+        </div>\par
+    )\par
+\}\par
+\par
+\b\fs28 usePathname:\b0\fs22\par
+the usePathname hook from the next/navigation module provides a straightforward way to access the current pathname. This can be useful for implementing conditional logic based on the current route, such as applying different layouts or styles.\par
+\b Example of a usePathname in Next.js:\par
+\b0 'use client'\par
+import Link from "next/link"\par
+import \{ usePathname \} from "next/navigation"\par
+\par
+export default function Layout(\{children\})\{\par
+    const pathName = usePathname();\par
+    const hiddenpaths = ["/login/loginstudent", "/login/logincollege"]\par
+    return(\par
+        <div>\par
+            \{\par
+                !hiddenpaths.includes(pathName) ?\par
+                <ul>\par
+                <h4>Login Navbar</h4>\par
+                <li>\par
+                    <Link href="/login">Login</Link>\par
+                </li>\par
+                <li>\par
+                    <Link href="/login/logincollege">Login College</Link>\par
+                </li>\par
+                <li>\par
+                    <Link href="/login/loginstudent">Login Student</Link>\par
+                </li>\par
+            </ul>\par
+            : <Link href="/login">Login Page</Link>\par
+            \}\par
+            \{children\}\par
+        </div>\par
+    )\par
+\}\par
+\par
+\b\fs28 Dynamic Routing:\par
+\b0\fs22 Dynamic routing in Next.js allows you to create routes with dynamic segments, enabling you to handle URLs that contain variable parts. This is particularly useful for scenarios like user profiles, blog posts, or product pages where the content varies based on some identifier.\par
+\b Example of a Dynamic routing in Next.js:\par
+studentlist/page.js:\par
+\b0 import Link from "next/link";\par
+\par
+export default function StudentList() \{\par
+    return (\par
+        <div>\par
+            <h1>Student List</h1>\par
+            <ul>\par
+                <li>\par
+                    <Link href="/studentlist/hanzala">Hanzala</Link>\par
+                </li>\par
+                <li>\par
+                    <Link href="/studentlist/abdullah">Abdullah</Link>\par
+                </li>\par
+                <li>\par
+                    <Link href="/studentlist/ali">Ali</Link>\par
+                </li>\par
+                <li>\par
+                    <Link href="/studentlist/umer">Umer</Link>\par
+                </li>\par
+            </ul>\par
+        </div>\par
+    )\par
+\}\par
+\par
+\b studentlist/[students]/page.js:\par
+\b0 'use client'\par
+\par
+export default function Students(\{params\}) \{\par
+    return (\par
+        <div>\par
+            <h1>Student Details</h1>\par
+            <h3>Name: \{params.students\}</h3>\par
+        </div>\par
+    )\par
+\}\par
+\par
+\b\fs28 Catch-all Segments of Route:\b0\fs22\par
+Catch-all segments in Next.js allow you to create routes that match multiple segments. This is useful when you want to handle a dynamic number of path segments in your URL. Catch-all routes are denoted by three dots (...) inside square brackets.\par
+\b Example of a Catch-all Segments of Route in Next.js:\b0\par
+\b study/page.js:\par
+\b0 export default function Study()\{\par
+    return(\par
+        <div>\par
+            <h1>Lectures of College</h1>\par
+        </div>\par
+    )\par
+\}\par
+\par
+\b study/[...lectures]/page.js:\par
+\b0 'use client'\par
+\par
+export default function Lectures(\{params\})\{\par
+    return(\par
+        <div>\par
+            <h1>Day \{params.lectures[0]\}</h1>\par
+            <h1>Lecture no. \{params.lectures[1]\}</h1>\par
+            <h1>Topic no. \{params.lectures[2]\}</h1>\par
+            <h1>Section \{params.lectures[3]\}</h1>\par
+        </div>\par
+    )\par
+\}\par
+\par
+\b\fs28 Middleware:\b0\fs22\par
+Middleware in Next.js 13 is a powerful feature that allows you to run code before a request is completed. It can be used for various purposes such as authentication, logging, redirects, and more. Middleware in Next.js runs on the Edge Runtime, which means it executes close to the user, providing faster response times and reducing server load.\par
+\b Example of a middleware in Next.js:\par
+\b0 import \{ NextResponse \} from "next/server";\par
+\par
+export function middleware(request) \{\par
+    return NextResponse.redirect(new URL("/login", request.url))\par
+\}\par
+\par
+export const config=\{\par
+    matcher:["/about/:path*","/studentlist/:path*"]\par
+\}\par
+\par
+\b\fs28 Fetch API data in Client component using UseEffect:\par
+\b0\fs22 useEffect is a hook provided by React that lets you perform side effects in your function components. Side effects are operations that affect something outside the scope of the function being executed, such as data fetching, setting up subscriptions, or manually changing the DOM.\par
+\b Example:\par
+\b0 'use client';\par
+import \{ useEffect, useState \} from 'react';\par
+\par
+export default function ProductList() \{\par
+  const [products, setProducts] = useState([]);\par
+\par
+  useEffect(() => \{  \par
+    const fetchProducts = async () => \{\par
+        let response = await fetch('{{\field{\*\fldinst{HYPERLINK https://dummyjson.com/products }}{\fldrslt{https://dummyjson.com/products\ul0\cf0}}}}\f0\fs22 ');\par
+        let data = await response.json();\par
+        setProducts(data.products);\par
+    \};\par
+\par
+    fetchProducts();\par
+  \}, []);\par
+\par
+  return (\par
+    <div>\par
+      <h1>Product List</h1>\par
+      \{products.map((item) => (\par
+        <p>Name: \{item.title\}<br/> Category: \{item.category\}<br/> Price: \{item.price\}</p>\par
+      ))\}\par
+    </div>\par
+  );\par
+\}\par
+\par
+\b\fs28 Fetch API data in Server component:\par
+\fs22 Example:\par
+\b0 async function ProductList() \{\par
+    let data = await fetch('{{\field{\*\fldinst{HYPERLINK https://dummyjson.com/products }}{\fldrslt{https://dummyjson.com/products\ul0\cf0}}}}\f0\fs22 ');\par
+    data = await data.json();\par
+    return data.products\par
+\}\par
+\par
+export default async function ProductItem() \{\par
+    let products = await ProductList() \par
+    return (\par
+        <div>\par
+            <h1>Product List</h1>\par
+            \{\par
+\tab products.map((item) => (\par
+                <p>Name: \{item.title\}<br /> Category: \{item.category\}<br /> Price: \{item.price\}</p>\par
+            ))\}\par
+        </div>\par
+    );\par
+\}\par
+\b\fs28\par
+Use client component in Server component:\par
+\fs22 Example:\par
+productitem/page.js:\par
+\b0 import Button from "./button";\par
+\par
+async function ProductList() \{\par
+    let data = await fetch('{{\field{\*\fldinst{HYPERLINK https://dummyjson.com/products }}{\fldrslt{https://dummyjson.com/products\ul0\cf0}}}}\f0\fs22 ');\par
+    data = await data.json();\par
+    return data.products\par
+\}\par
+\par
+export default async function ProductItem() \{\par
+    let products = await ProductList()\par
+    return (\par
+        <div>\par
+            <h1>Product List</h1>\par
+            \{products.map((item) => (\par
+                <div>\par
+                    <p>Name: \{item.title\}<br /> Category: \{item.category\}</p>\par
+                    <Button price=\{item.price\}/>\par
+                </div>\par
+            ))\}\par
+        </div>\par
+    );\par
+\}\b\par
+\par
+productitem/button.js:\par
+\b0 'use client'\par
+\par
+export default function Button(\{price\})\{\par
+    return(\par
+        <div>\par
+            <button onClick=\{()=>alert(price)\}>Check Price</button>\par
+        </div>\par
+    )\par
+\}\b\fs28\par
+}
+ 

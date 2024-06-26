@@ -1,0 +1,90 @@
+JavaScript: JavaScript is the programming language of the web. It program the behavior of the webpages.
+
+Basic concepts of JavaScript along with examples:
+
+- Variables: Variables are containers for storing data values. You can declare variables using the var, let, or const keywords.
+
+Examples:
+
+var name = "Hanzala";
+let age = 25;
+const g = 9.8;
+
+- Data Types: JavaScript supports several data types including numbers, strings, booleans, arrays, objects, and more.
+
+Examples:
+
+let number = 10;
+let text = "Hello";
+let isTrue = true;
+let fruits = ["apple", "banana", "orange"];
+let person = { name: "John", age: 30 };
+
+
+- Functions: Functions are blocks of reusable code that perform a specific task.
+
+Examples:
+
+function greet(name) {
+    console.log("Hello, " + name + "!");
+}
+
+greet("John");
+
+- Conditional Statements: Conditional statements execute different actions based on different conditions.
+
+Examples:
+
+let num = 10;
+
+if (num > 0) {
+    console.log("Positive number");
+} else if (num < 0) {
+    console.log("Negative number");
+} else {
+    console.log("Zero");
+}
+
+- Loops: Loops are used to repeatedly execute a block of code.
+
+Examples:
+
+for (let i = 0; i < 5; i++) {
+    console.log("Iteration " + i);
+}
+
+let fruits = ["apple", "banana", "orange"];
+for (let fruit of fruits) {
+    console.log(fruit);
+}
+
+- Arrays: Arrays are used to store multiple values in a single variable.
+
+Examples:
+
+let fruits = ["apple", "banana", "orange"];
+console.log(fruits[0]); // Output: apple
+console.log(fruits.length); // Output: 3
+
+- Objects: Objects are used to store collections of key-value pairs.
+
+Examples:
+
+let person = {
+    name: "John",
+    age: 30,
+    city: "New York"
+};
+console.log(person.name); // Output: John
+
+- Events: Events are actions or occurrences that happen in the system you are programming. JavaScript can respond to these events.
+
+Examples:
+
+HTML:
+<button id="myButton">Click me</button>
+
+JavaScript:
+document.getElementById("myButton").addEventListener("click", function() {
+    console.log("Button clicked!");
+});
