@@ -1,2 +1,5 @@
-1) ShadCN (Specially Theming)
-2) Axios (Api fetch), intercepter(response,request)
+1) Validation
+2) Dropdown countries/cities
+3) SignUp > login > Admin/User Dashboard
+4) ShadCN (Specially Theming)
+5) Axios (Api fetch), intercepter(response,request)

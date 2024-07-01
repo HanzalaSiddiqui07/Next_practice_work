@@ -17,8 +17,6 @@ export default function ViewProduct({ params }) {
         getProductById();
     }, []);
 
-
-
     const handleSubmit = (e) => {
         e.preventDefault()
 
@@ -31,7 +29,6 @@ export default function ViewProduct({ params }) {
         localStorage.setItem("Product", JSON.stringify(saveProduct))
         
         document.cookie = `Product=${JSON.stringify(saveProduct)}`; 
-
     }
 
     return (
